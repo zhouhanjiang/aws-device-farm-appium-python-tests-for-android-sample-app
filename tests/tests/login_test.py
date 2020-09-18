@@ -22,7 +22,8 @@ class LoginTest(BaseTest):
     USERNAME = 'admin'
     VALID_PASSWORD = 'password'
     INVALID_PASSWORD = 'passwrod'
-    PAGE_NAME = 'Login Page'
+    #PAGE_NAME = 'Login Page'
+    PAGE_NAME = '(//android.widget.TextView[@content-desc="Row Category Name"])[8]'
 
     def setUp(self):
         """Set up Appium connection and navigate to login page."""
@@ -31,7 +32,8 @@ class LoginTest(BaseTest):
         self.login = LoginPage(self.driver)
 
     def get_name(self):
-        return PAGE_NAME
+        return self.PAGE_NAME
+
 
     def test_valid_login(self):
         """Login with valid credentials, verify valid login message, log out, verify back at log in."""

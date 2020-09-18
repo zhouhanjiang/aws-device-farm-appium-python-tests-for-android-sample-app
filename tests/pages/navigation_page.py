@@ -53,7 +53,9 @@ class NavigationPage(BasePage):
 
         while category_element is None and num_attempts < self.MAX_ATTEMPTS:
             try:
-                category_element = self.driver.find_element_by_name(category_name)
+                #category_element = self.driver.find_element_by_name(category_name)
+                #category_element = self.driver.find_element("xpath","//android.widget.TextView[@text='"+str(category_name)+"']")
+                category_element = self.driver.find_element_by_xpath(category_name)
                 num_attempts += 1
             except NoSuchElementException:
                 self.scroll_nav_drawer_down()

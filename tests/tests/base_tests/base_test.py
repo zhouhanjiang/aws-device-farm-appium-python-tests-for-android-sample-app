@@ -14,7 +14,7 @@
 import unittest
 from appium import webdriver
 from tests.pages import *
-
+import time
 
 class BaseTest(unittest.TestCase):
     """Basis for all tests."""
@@ -32,7 +32,34 @@ class BaseTest(unittest.TestCase):
         """
         desired_caps['platformName'] = 'Android'
         desired_caps['deviceName'] = 'aPhone'
+        desired_caps['appPackage'] = 'com.amazonaws.devicefarm.android.referenceapp'
+        desired_caps['appActivity'] = 'com.amazonaws.devicefarm.android.referenceapp.Activities.MainActivity'
         self.driver = webdriver.Remote(url, desired_caps)
+
+        for try_time in range(2):
+          time.sleep(1)
+
+          try:
+            reinstall_continue_btn = self.driver.find_element_by_id("com.android.permissioncontroller:id/continue_button")
+            print("BaseTest.setUp.reinstall_continue_btn="+str(reinstall_continue_btn))
+            if reinstall_continue_btn is not None:
+              time.sleep(5)
+              reinstall_continue_btn.click()
+          except Exception,msg:
+            print("BaseTest.setUp.err,msg="+str(msg))
+
+          try:
+            time.sleep(1)
+            reinstall_cfm_btn = self.driver.find_element_by_id("android:id/button1")
+            print("BaseTest.setUp.reinstall_continue_btn="+str(reinstall_continue_btn))
+            if reinstall_cfm_btn is not None:
+              time.sleep(5)
+              reinstall_cfm_btn.click()
+          except Exception,msg:
+            print("BaseTest.setUp.err,msg="+str(msg))
+
+
+
         self.navigation_page = NavigationPage(self.driver)
 
     def tearDown(self):

@@ -17,7 +17,8 @@ from tests.pages import AlertsPage
 
 class AlertsTest(BaseTest):
     """Container for all alerts page tests."""
-    PAGE_NAME = 'Alerts'
+    #PAGE_NAME = 'Alerts'
+    PAGE_NAME = '(//android.widget.TextView[@content-desc="Row Category Name"])[7]'
 
     def setUp(self):
         """Set up Appium connection and navigate to image gallery page."""
@@ -26,7 +27,7 @@ class AlertsTest(BaseTest):
         self.alerts = AlertsPage(self.driver)
 
     def get_name(self):
-        return PAGE_NAME
+        return self.PAGE_NAME
 
     def test_alert(self):
         """Clicks alert button, verifies alert text, accepts the alert message."""

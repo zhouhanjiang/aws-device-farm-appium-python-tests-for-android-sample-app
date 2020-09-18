@@ -1,3 +1,6 @@
+https://github.com/aws-samples/aws-device-farm-sample-app-for-android
+https://github.com/aws-samples/aws-device-farm-appium-python-tests-for-android-sample-app
+
 # Appium Python Sample Tests for AWS Device Farm Sample Android App
 This is a collection of sample Appium Python tests written for the AWS Device Farm [Android sample app](https://github.com/awslabs/aws-device-farm-sample-app-for-android). This test suite uses the [Appium page model](http://appium.io/slate/en/tutorial/android?java#page-object-pattern) to separate the tests from the page logic. You may use these tests as a starting reference for writing your own AWS Device Farm Appium Python Tests. 
 Note: Your tests may be different than these and it is not a hard requirement that they exactly follow this model. This is an example for lookup.
