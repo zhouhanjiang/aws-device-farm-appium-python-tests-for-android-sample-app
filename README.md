@@ -1,3 +1,4 @@
+python2.7
 https://github.com/aws-samples/aws-device-farm-sample-app-for-android
 https://github.com/aws-samples/aws-device-farm-appium-python-tests-for-android-sample-app
 
