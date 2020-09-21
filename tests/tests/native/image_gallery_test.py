@@ -26,7 +26,10 @@ class ImageGalleryTest(NativeTest):
         self.image_gallery_page = ImageGalleryPage(self.driver)
 
     def get_page_index(self):
-        return PAGE_INDEX
+        return self.PAGE_INDEX
+
+    def get_name(self):
+        return '	(//android.widget.TextView[@content-desc="Row Category Name"])[3]'
 
     def test_image_gallery(self):
         """Verifies image gallery is displayed."""
