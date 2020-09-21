@@ -39,6 +39,7 @@ class NestedViewsPage(BasePage):
     def press_up_navigation(self):
         """Press up navigation button."""
         #up_navigation = self.driver.find_element_by_name(self.UP_NAVIGATION_NAME)
+        time.sleep(1)
         up_navigation = self.driver.find_element_by_id(self.UP_NAVIGATION_ID)
         time.sleep(1)
         up_navigation.click()
@@ -46,6 +47,7 @@ class NestedViewsPage(BasePage):
     def press_back_navigation(self):
         """Press back navigation button."""
         #back_navigation = self.driver.find_element_by_name(self.BACK_NAVIGATION_NAME)
+        time.sleep(1)
         back_navigation = self.driver.find_element_by_id(self.BACK_NAVIGATION_ID)
         time.sleep(1)
         back_navigation.click()
@@ -70,6 +72,7 @@ class NestedViewsPage(BasePage):
     def press_up_navigation_back_button(self):
         """Press up navigation back button."""
         #back_button = self.driver.find_element_by_id(self.UP_NAVIGATION_BACK_BUTTON_NAME)
+        time.sleep(1)
         back_button = self.driver.find_element_by_accessibility_id(self.UP_NAVIGATION_BACK_BUTTON_ID)
         time.sleep(1)
         back_button.click()
@@ -78,6 +81,7 @@ class NestedViewsPage(BasePage):
         """Press next level button."""
         #next_level_button = self.driver.find_element_by_name(self.NEXT_LEVEL_BUTTON_NAME)
         #next_level_button = self.driver.find_element_by_id(self.NEXT_LEVEL_BUTTON_ID)
+        time.sleep(1)
         next_level_button = self.driver.find_element_by_xpath(self.NEXT_LEVEL_XPATH)
         time.sleep(1)
         next_level_button.click()
@@ -85,6 +89,7 @@ class NestedViewsPage(BasePage):
     def get_counter(self):
         """Returns the current page counter as an int."""
         #counter = self.driver.find_element_by_name(self.COUNTER_NAME)
+        time.sleep(1)
         counter = self.driver.find_element_by_id(self.COUNTER_ID)
         time.sleep(1)
         return int(counter.text)
