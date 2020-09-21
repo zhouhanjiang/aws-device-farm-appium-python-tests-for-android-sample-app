@@ -19,7 +19,8 @@ from tests.pages.base_pages.base_page import BasePage
 class WebPage(BasePage):
     """Custom web page representation."""
     NAV_BAR_SELECTOR = 'new UiSelector().textContains("http://www.amazon.com")'
-    FOCUSED_WEB_VIEW_SELECTOR = 'new UiSelector().focused(true).descriptionContains("aws")'
+    #FOCUSED_WEB_VIEW_SELECTOR = 'new UiSelector().focused(true).descriptionContains("aws")'
+    FOCUSED_WEB_VIEW_SELECTOR = 'new UiSelector().textContains("Amazon")'
     KEYBOARD_ANIMATION_DELAY = 1
     WEBSITE_LOAD_TIME = 7
 

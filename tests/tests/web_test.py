@@ -27,7 +27,8 @@ class WebTest(BaseTest):
         self.web_view = WebPage(self.driver)
 
     def get_name(self):
-        return 'Web'
+        #return 'Web'
+        return '(//android.widget.TextView[@content-desc="Row Category Name"])[2]'
 
     def test_web_view(self):
         """Goes to url, verifies web description is loaded."""

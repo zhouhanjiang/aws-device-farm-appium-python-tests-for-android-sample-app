@@ -34,6 +34,7 @@ class BaseTest(unittest.TestCase):
         desired_caps['deviceName'] = 'aPhone'
         desired_caps['appPackage'] = 'com.amazonaws.devicefarm.android.referenceapp'
         desired_caps['appActivity'] = 'com.amazonaws.devicefarm.android.referenceapp.Activities.MainActivity'
+        desired_caps['appWaitDuration'] = '300000'
         self.driver = webdriver.Remote(url, desired_caps)
 
         for try_time in range(2):
