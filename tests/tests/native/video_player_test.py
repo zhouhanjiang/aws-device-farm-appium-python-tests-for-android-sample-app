@@ -26,7 +26,10 @@ class VideoPlayerTest(NativeTest):
         self.video_player = VideoPlayerPage(self.driver)
 
     def get_page_index(self):
-        return PAGE_INDEX
+        return self.PAGE_INDEX
+
+    def get_name(self):
+        return '	(//android.widget.TextView[@content-desc="Row Category Name"])[3]'
 
     def test_video_player(self):
         """Verifies video is displayed."""

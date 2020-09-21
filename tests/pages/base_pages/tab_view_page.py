@@ -16,8 +16,8 @@ from base_page import BasePage
 
 class TabViewPage(BasePage):
     """Base for a tab view page."""
-    START_OFFSET = 0.95
-    END_OFFSET = 0.05
+    START_OFFSET = 0.85
+    END_OFFSET = 0.15
     SWIPE_DURATION = 1000
 
     def go_to_next_page(self):
