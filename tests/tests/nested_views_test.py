@@ -13,7 +13,7 @@
 
 from base_tests.base_test import BaseTest
 from tests.pages import NestedViewsPage
-
+import time
 
 class NestedViewsTest(BaseTest):
     """Container for all nested view page tests."""
@@ -29,7 +29,8 @@ class NestedViewsTest(BaseTest):
         self.nested_views = NestedViewsPage(self.driver)
 
     def get_name(self):
-        return 'Nested Views'
+        #return 'Nested Views'
+        return '	(//android.widget.TextView[@content-desc="Row Category Name"])[5]'
 
     def test_up_navigation(self):
         """Goes up a level, verifies text, goes down a level, verifies text."""
@@ -50,10 +51,12 @@ class NestedViewsTest(BaseTest):
 
         for __ in range(self.NEXT_LEVEL_CLICKS):
             self.nested_views.press_next_level()
+            time.sleep(1)
 
         self.assertEquals(self.nested_views.get_counter(), self.BEFORE_COUNTER)
 
         for __ in range(self.BACK_BUTTON_CLICKS):
             self.nested_views.press_back_button()
+            time.sleep(1)
 
         self.assertEquals(self.nested_views.get_counter(), self.AFTER_COUNTER)
