@@ -12,12 +12,16 @@
 # permissions and limitations under the License.
 
 from base_tab_test import BaseTabTest
-
+from tests.module.Logger import logger
 
 class NativeTest(BaseTabTest):
     """Basis for tests for pages within native drawer."""
     def get_page_index(self):
+        logger.debug("NativeTest.get_page_index.NotImplementedError")
         raise NotImplementedError
 
     def get_name(self):
-        return 'Native Components'
+        native_xpath_name = '(//android.widget.TextView[@content-desc="Row Category Name"])[3]'
+        logger.debug("NativeTest.get_name.native_xpath_name="+str(native_xpath_name))
+        #return 'Native Components'
+        return native_xpath_name

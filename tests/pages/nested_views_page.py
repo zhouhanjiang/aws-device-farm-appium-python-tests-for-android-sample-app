@@ -16,6 +16,7 @@
 
 from tests.pages.base_pages.base_page import BasePage
 import time
+from tests.module.Logger import logger
 
 class NestedViewsPage(BasePage):
     """Nested views page representation."""
@@ -34,14 +35,20 @@ class NestedViewsPage(BasePage):
     #COUNTER_NAME = 'Level Display'
     COUNTER_ID = 'com.amazonaws.devicefarm.android.referenceapp:id/back_navigation_counter'
     #UP_NAVIGATION_BACK_BUTTON_NAME = 'Navigate up'
-    UP_NAVIGATION_BACK_BUTTON_ID = '转到上一层级'
+    #UP_NAVIGATION_BACK_BUTTON_ID = '转到上一层级'
+    UP_NAVIGATION_BACK_BUTTON_XPATH = '//android.widget.ImageButton[@content-desc="转到上一层级"]'
+    logger.debug("NestedViewsPage.__init__.UP_NAVIGATION_ID="+str(UP_NAVIGATION_ID)+";BACK_NAVIGATION_ID="+str(BACK_NAVIGATION_ID)+";FIRST_LEVEL_TEXT_ID="+str(FIRST_LEVEL_TEXT_ID))
+    logger.debug("NestedViewsPage.__init__.FINAL_LEVEL_TEXT_XPATH="+str(FINAL_LEVEL_TEXT_XPATH)+";NEXT_LEVEL_XPATH="+str(NEXT_LEVEL_XPATH)+";COUNTER_ID="+str(COUNTER_ID))
+    logger.debug("NestedViewsPage.__init__.UP_NAVIGATION_BACK_BUTTON_XPATH="+str(UP_NAVIGATION_BACK_BUTTON_XPATH))
 
     def press_up_navigation(self):
         """Press up navigation button."""
         #up_navigation = self.driver.find_element_by_name(self.UP_NAVIGATION_NAME)
         time.sleep(1)
         up_navigation = self.driver.find_element_by_id(self.UP_NAVIGATION_ID)
+        logger.debug("NestedViewsPage.press_up_navigation.up_navigation="+str(up_navigation))
         time.sleep(1)
+        logger.debug("NestedViewsPage.press_up_navigation.up_navigation.click")
         up_navigation.click()
 
     def press_back_navigation(self):
@@ -49,7 +56,9 @@ class NestedViewsPage(BasePage):
         #back_navigation = self.driver.find_element_by_name(self.BACK_NAVIGATION_NAME)
         time.sleep(1)
         back_navigation = self.driver.find_element_by_id(self.BACK_NAVIGATION_ID)
+        logger.debug("NestedViewsPage.press_back_navigation.back_navigation="+str(back_navigation))
         time.sleep(1)
+        logger.debug("NestedViewsPage.press_back_navigation.back_navigation.click")
         back_navigation.click()
 
     def first_level_text_is_displayed(self):
@@ -57,6 +66,7 @@ class NestedViewsPage(BasePage):
         #first_level_text = self.driver.find_element_by_name(self.FIRST_LEVEL_TEXT_NAME)
         time.sleep(1)
         first_level_text = self.driver.find_element_by_id(self.FIRST_LEVEL_TEXT_ID)
+        logger.debug("NestedViewsPage.first_level_text_is_displayed.first_level_text="+str(first_level_text))
         time.sleep(1)
         return first_level_text.is_displayed()
 
@@ -66,6 +76,7 @@ class NestedViewsPage(BasePage):
         time.sleep(1)
         #final_level_text = self.driver.find_element_by_id(self.FINAL_LEVEL_TEXT_ID)
         final_level_text = self.driver.find_element_by_xpath(self.FINAL_LEVEL_TEXT_XPATH)
+        logger.debug("NestedViewsPage.final_level_text_is_displayed.final_level_text="+str(final_level_text))
         time.sleep(1)
         return final_level_text.is_displayed()
 
@@ -73,8 +84,11 @@ class NestedViewsPage(BasePage):
         """Press up navigation back button."""
         #back_button = self.driver.find_element_by_id(self.UP_NAVIGATION_BACK_BUTTON_NAME)
         time.sleep(1)
-        back_button = self.driver.find_element_by_accessibility_id(self.UP_NAVIGATION_BACK_BUTTON_ID)
+        #back_button = self.driver.find_element_by_accessibility_id(self.UP_NAVIGATION_BACK_BUTTON_ID)
+        back_button = self.driver.find_element_by_xpath(self.UP_NAVIGATION_BACK_BUTTON_XPATH)
+        logger.debug("NestedViewsPage.press_up_navigation_back_button.back_button="+str(back_button))
         time.sleep(1)
+        logger.debug("NestedViewsPage.press_up_navigation_back_button.back_button.click")
         back_button.click()
 
     def press_next_level(self):
@@ -83,7 +97,9 @@ class NestedViewsPage(BasePage):
         #next_level_button = self.driver.find_element_by_id(self.NEXT_LEVEL_BUTTON_ID)
         time.sleep(1)
         next_level_button = self.driver.find_element_by_xpath(self.NEXT_LEVEL_XPATH)
+        logger.debug("NestedViewsPage.press_next_level.next_level_button="+str(next_level_button))
         time.sleep(1)
+        logger.debug("NestedViewsPage.press_next_level.next_level_button.click")
         next_level_button.click()
 
     def get_counter(self):
@@ -91,9 +107,11 @@ class NestedViewsPage(BasePage):
         #counter = self.driver.find_element_by_name(self.COUNTER_NAME)
         time.sleep(1)
         counter = self.driver.find_element_by_id(self.COUNTER_ID)
+        logger.debug("NestedViewsPage.get_counter.counter="+str(counter))
         time.sleep(1)
         return int(counter.text)
 
     def press_back_button(self):
         """Press phone's back button."""
+        logger.debug("NestedViewsPage.press_back_button.driver.click")
         self.driver.back()

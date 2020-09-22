@@ -1,3 +1,6 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
 # Copyright 2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License").
@@ -11,6 +14,7 @@
 # express or implied. See the License for the specific language governing
 # permissions and limitations under the License.
 
+from tests.module.Logger import logger
 
 class BasePage:
     """The basis for all pages."""
@@ -22,6 +26,9 @@ class BasePage:
 
         Sets driver, implicit wait, and timeout.
         """
+        logger.debug("BasePage.__init__.driver="+str(driver))
+        logger.debug("BasePage.__init__.IMPLICIT_WAIT_TIME="+str(self.IMPLICIT_WAIT_TIME))
+        logger.debug("BasePage.__init__.TIMEOUT="+str(self.TIMEOUT))
         self.driver = driver
         self.driver.implicitly_wait(self.IMPLICIT_WAIT_TIME)
         self.timeout = self.TIMEOUT

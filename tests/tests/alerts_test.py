@@ -1,3 +1,6 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
 # Copyright 2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License").
@@ -23,22 +26,22 @@ class AlertsTest(BaseTest):
 
     def setUp(self):
         """Set up Appium connection and navigate to image gallery page."""
-        logger.info("alerts_test.setUp-->BaseTest.setUp")
+        logger.debug("alerts_test.setUp-->BaseTest.setUp")
         BaseTest.setUp(self)
-        logger.info("alerts_test.setUp-->BaseTest.navigate_to_page")
+        logger.debug("alerts_test.setUp-->BaseTest.navigate_to_page")
         BaseTest.navigate_to_page(self)
-        logger.info("alerts_test.setUp-->self.alerts")
+        logger.debug("alerts_test.setUp-->self.alerts")
         self.alerts = AlertsPage(self.driver)
 
     def get_name(self):
-        logger.info("alerts_test.get_name.PAGE_NAME="+str(self.PAGE_NAME))
+        logger.debug("alerts_test.get_name.PAGE_NAME="+str(self.PAGE_NAME))
         return self.PAGE_NAME
 
     def test_alert(self):
         """Clicks alert button, verifies alert text, accepts the alert message."""
-        logger.info("alerts_test.test_alert.click_alert_button")
+        logger.debug("alerts_test.test_alert.click_alert_button")
         self.alerts.click_alert_button()
-        logger.info("alerts_test.test_alert.assertTrue--->alert_text_is_displayed")
+        logger.debug("alerts_test.test_alert.assertTrue--->alert_text_is_displayed")
         self.assertTrue(self.alerts.alert_text_is_displayed())
-        logger.info("alerts_test.test_alert.accept_alert_message")
+        logger.debug("alerts_test.test_alert.accept_alert_message")
         self.alerts.accept_alert_message()

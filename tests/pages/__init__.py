@@ -1,3 +1,6 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
 from alerts_page import AlertsPage
 from login_page import LoginPage
 from navigation_page import NavigationPage

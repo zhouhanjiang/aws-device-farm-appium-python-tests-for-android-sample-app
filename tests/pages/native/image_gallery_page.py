@@ -1,3 +1,6 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
 # Copyright 2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License").
@@ -12,7 +15,7 @@
 # permissions and limitations under the License.
 
 from tests.pages.base_pages.base_page import BasePage
-
+from tests.module.Logger import logger
 
 class ImageGalleryPage(BasePage):
     """Image gallery page representation."""
@@ -20,5 +23,7 @@ class ImageGalleryPage(BasePage):
 
     def image_gallery_is_displayed(self):
         """Returns visibility of image gallery as a boolean."""
+        logger.debug("ImageGalleryPage.image_gallery_is_displayed.GRID_VIEW_CLASS="+str(self.GRID_VIEW_CLASS))
         image_gallery = self.driver.find_element_by_class_name(self.GRID_VIEW_CLASS)
+        logger.debug("ImageGalleryPage.image_gallery_is_displayed.image_gallery="+str(image_gallery))
         return image_gallery.is_displayed()

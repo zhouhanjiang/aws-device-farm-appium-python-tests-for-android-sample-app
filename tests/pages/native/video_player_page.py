@@ -1,3 +1,6 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
 # Copyright 2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License").
@@ -13,7 +16,7 @@
 
 from tests.pages.base_pages.base_page import BasePage
 from selenium.common.exceptions import NoSuchElementException
-
+from tests.module.Logger import logger
 
 class VideoPlayerPage(BasePage):
     """Video player page representation."""
@@ -27,10 +30,12 @@ class VideoPlayerPage(BasePage):
         Media player is incompatible with a small number of devices,
         checks for "Can't play this video" alert in this case.
         """
+        logger.debug("VideoPlayerPage.video_is_displayed.VIDEO_VIEW_CLASS="+str(self.VIDEO_VIEW_CLASS)+";BAD_VIDEO_ALERT_XPATH="+str(self.BAD_VIDEO_ALERT_XPATH))
         try:
             video_element = self.driver.find_element_by_class_name(self.VIDEO_VIEW_CLASS)
         except NoSuchElementException:
             #video_element = self.driver.find_element_by_name(self.BAD_VIDEO_ALERT_NAME)
             video_element = self.driver.find_element_by_xpath(self.BAD_VIDEO_ALERT_XPATH)
 
+        logger.debug("VideoPlayerPage.video_is_displayed.video_element="+str(video_element))
         return video_element.is_displayed()

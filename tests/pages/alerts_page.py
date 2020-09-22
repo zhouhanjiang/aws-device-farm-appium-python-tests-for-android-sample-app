@@ -1,3 +1,6 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
 # Copyright 2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License").
@@ -12,19 +15,21 @@
 # permissions and limitations under the License.
 
 from tests.pages.base_pages.base_page import BasePage
-
+from tests.module.Logger import logger
 
 class AlertsPage(BasePage):
     """Alerts page representation"""
     ALERT_BUTTON_NAME = "ALERT"
     ALERT_MESSAGE_NAME = "This is the alert message"
     OK_BUTTON_NAME = "OK"
+    logger.debug("AlertsPage.__init__.ALERT_BUTTON_NAME="+str(ALERT_BUTTON_NAME)+";ALERT_MESSAGE_NAME="+str(ALERT_MESSAGE_NAME)+";OK_BUTTON_NAME="+str(OK_BUTTON_NAME))
 
     def click_alert_button(self):
         """Taps alert button."""
         #alert_button = self.driver.find_element_by_name(self.ALERT_BUTTON_NAME)
         alert_button = self.driver.find_element_by_id('com.amazonaws.devicefarm.android.referenceapp:id/notifications_alert_button')
         print("AlertsPage.click_alert_button.alert_button="+str(alert_button))
+        logger.debug("AlertsPage.click_alert_button.alert_button="+str(alert_button))
         alert_button.click()
 
     def alert_text_is_displayed(self):
@@ -32,6 +37,7 @@ class AlertsPage(BasePage):
         #alert_text = self.driver.find_element_by_name(self.ALERT_MESSAGE_NAME)
         alert_text = self.driver.find_element_by_id("android:id/message")
         print("AlertsPage.alert_text_is_displayed.alert_text="+str(alert_text))
+        logger.debug("AlertsPage.alert_text_is_displayed.alert_text="+str(alert_text))
         return alert_text.is_displayed()
 
     def accept_alert_message(self):
@@ -39,4 +45,5 @@ class AlertsPage(BasePage):
         #ok_button = self.driver.find_element_by_name(self.OK_BUTTON_NAME)
         ok_button = self.driver.find_element_by_id("android:id/button1")
         print("AlertsPage.accept_alert_message.ok_button="+str(ok_button))
+        logger.debug("AlertsPage.accept_alert_message.ok_button="+str(ok_button))
         ok_button.click()

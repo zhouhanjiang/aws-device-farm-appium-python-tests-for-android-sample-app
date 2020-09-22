@@ -1,3 +1,6 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
 # Copyright 2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License").
@@ -12,7 +15,7 @@
 # permissions and limitations under the License.
 
 from base_page import BasePage
-
+from tests.module.Logger import logger
 
 class TabViewPage(BasePage):
     """Base for a tab view page."""
@@ -22,9 +25,13 @@ class TabViewPage(BasePage):
 
     def go_to_next_page(self):
         """Swipes left to go to next page in tab view drawer."""
+        logger.debug("TabViewPage.go_to_next_page.START_OFFSET="+str(self.START_OFFSET)+";END_OFFSET="+str(self.END_OFFSET)+";SWIPE_DURATION="+str(self.SWIPE_DURATION))
         size = self.driver.get_window_size()
+        logger.debug("TabViewPage.go_to_next_page.size="+str(size))
         start_x = size['width'] * self.START_OFFSET
         end_x = size['width'] * self.END_OFFSET
         mid_y = size['height'] / 2
+        logger.debug("TabViewPage.go_to_next_page.start_x="+str(start_x)+";end_x="+str(end_x)+";mid_y="+str(mid_y))
 
+        logger.debug("TabViewPage.go_to_next_page.driver-->swipe")
         self.driver.swipe(start_x, mid_y, end_x, mid_y, self.SWIPE_DURATION)
